@@ -24,12 +24,13 @@ val retrofit = Retrofit.Builder()
 interface RickAndMortyApiService {
 
     @GET("character")
-    fun getProperties(@Query("count") count: Int): Deferred<List<CharacterVO>>
+    suspend fun getCharacters(@Query("pages") pages: Int): List<CharacterVO>
+    @GET("character")
+    suspend fun getCharacter(@Query("id") id: Int): CharacterVO
 
 
 
 }
-
 
 object RickAndMortyApi {
     val retrofitService: RickAndMortyApiService by lazy {
