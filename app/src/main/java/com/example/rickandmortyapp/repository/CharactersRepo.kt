@@ -10,12 +10,12 @@ class CharactersRepo(private val localSource: RickAndMortyDao, private val remot
     suspend fun getCharacters(cachePolicies: CachePolicies, page : Int): List<CharacterVO> {
         return when (cachePolicies){
             CachePolicies.NETWORK -> {
-                val characters = remoteSource.getCharacters(page)
+                val characters = remoteSource.getCharacters(page).listOfCharacters
                 localSource.deleteAllCharacters()
                 localSource.insertCharacters(characters.map{ it.toCharacterDB()})
                 characters
             }
-            CachePolicies.CACHE -> localSource.getAllCharacters().map{ it.toCharacterVO()}
+            CachePolicies.CACHE -> localSource.getAllCharacters().map { it.toCharacterVO() }
         }
     }
 

@@ -29,7 +29,7 @@ class MainFragmentViewModel (private val repository: CharactersRepo): ViewModel(
             try {
                 _storage.value = repository.getCharacters(CachePolicies.NETWORK, 1)
             } catch (ex: Exception) {
-                Log.e("MainFragmentViewModel", "something goes wrong in getAllCharacters")
+                Log.e("MainFragmentViewModel", "${ex.message}")
             }
         }
     }
