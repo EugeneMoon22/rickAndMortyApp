@@ -6,10 +6,12 @@ import com.example.rickandmortyapp.network.models.CharacterVO
 fun CharacterDB.toCharacterVO () = CharacterVO(
     id,
     name,
-    image
+    image,
+    status
 )
 fun CharacterVO.toCharacterDB () = CharacterDB(
     id,
     name,
-    image
+    image,
+    status
 )

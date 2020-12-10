@@ -12,9 +12,14 @@ data class CharacterDB(
 
     @PrimaryKey
     val id: Int = 0,
-    @ColumnInfo
+
+    @ColumnInfo(name = "name")
     val name: String = "",
-    @ColumnInfo
-    val image: String = ""
+
+    @ColumnInfo(name = "imageUrl")
+    val image: String = "",
+
+    @ColumnInfo(name = "status")
+    val status: String
 
 ) : Parcelable

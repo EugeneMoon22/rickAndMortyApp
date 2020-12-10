@@ -7,10 +7,14 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class CharacterVO(
     @Json(name = "id")
-    val id: Int,
+    val id: Int = 0,
 
     @Json(name ="image")
-    val image: String,
+    val image: String = "",
 
     @Json(name = "name")
-    val name: String) : Parcelable
+    val name: String = "",
+
+    @Json(name = "status")
+    val status: String = ""
+) : Parcelable

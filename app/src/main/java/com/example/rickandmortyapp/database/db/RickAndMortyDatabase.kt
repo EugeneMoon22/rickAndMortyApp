@@ -18,7 +18,7 @@ abstract class RickAndMortyDatabase : RoomDatabase()
 {
     companion object {
         const val DATABASE_NAME = "CHARACTERS_DATABASE.db"
-        const val DATABASE_VERSION = 1
+        const val DATABASE_VERSION = 2
         @Volatile
         private var INSTANCE: RickAndMortyDatabase? = null
         fun getInstance(context: Context):RickAndMortyDatabase{ synchronized(this){
